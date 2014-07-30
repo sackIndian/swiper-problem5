@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="swiper/idangerous.swiper.css" rel="stylesheet" />
+<link href="swiper/idangerous.swiper.scrollbar.css" rel="stylesheet" />
+
+<style type="text/css">
+*{
+	margin: 0;
+}
+
+div{
+	overflow: hidden;
+}
+
+
+.swiper-container
+{
+	width: 500px;
+	height: 200px;
+
+	margin-left: 30px;
+	margin-top: 30px;
+
+	background-color: pink;
+}
+
+
+
+.mycol
+{
+	width: 200px;
+	border-left: 1px solid black;
+	margin-right: -1px;
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+
+
+<div class="swiper-container swiper1">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide mycol">A</div>
+		<div class="swiper-slide mycol">B</div>
+		<div class="swiper-slide mycol">C</div>
+		<div class="swiper-slide mycol">D</div>
+	</div>
+</div>
+
+
+
+<div class="swiper-container swiper2">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide mycol">AA</div>
+		<div class="swiper-slide mycol">AB</div>
+		<div class="swiper-slide mycol">AC</div>
+		<div class="swiper-slide mycol">AD</div>
+	</div>
+</div>
+
+
+<script src="jquery.min.js"></script>
+<script src="swiper/idangerous.swiper.min.js"></script>
+<script src="swiper/idangerous.swiper.scrollbar-2.0.js"></script>
+
+<script type="text/javascript">
+var pgmLineSwiper, timeLineSwiper;
+
+$(document).ready(function(e)
+{
+	
+	//swiper init
+	timeLineSwiper = $(".swiper1").swiper({
+							slidesPerView :'auto',
+							loop : false,
+							offsetPxBefore : 0,
+							initialSlide : 0,
+							onlyExternal : false,
+							cssWidthAndHeight : true,
+							visibilityFullFit : true,
+							keyboardControl : true,
+							slidesPerViewFit  : false,
+							roundLengths  : false,
+							freeMode: true,
+							freeModeFluid: true,	
+							offsetSlidesBefore : 2,
+							useCSS3Transforms : true
+							});
+
+	pgmLineSwiper = $(".swiper2").swiper({
+							slidesPerView :'auto',
+							loop : false,
+							offsetPxBefore : 0,
+							initialSlide : 0,
+							onlyExternal : false,
+							cssWidthAndHeight : true,
+							visibilityFullFit : true,
+							keyboardControl : true,
+							slidesPerViewFit  : false,
+							roundLengths  : false,
+							freeMode: true,
+							freeModeFluid: true,
+							offsetSlidesBefore : 2,
+							useCSS3Transforms : true,
+							grabCursor : true,
+							resistance : false,
+							onSetWrapperTransform : function(inswiper){
+									timeLineSwiper.setWrapperTranslate( pgmLineSwiper.getWrapperTranslate(), 0, 0)
+							}
+						});
+
+});
+
+
+
+</script>
+
+</body>
+</html>
